@@ -1,0 +1,18 @@
+# wrangler.toml
+
+name = "d1-resources" # Your project's name
+main = "src/index.ts" # Path to your main Worker/Pages entry file
+compatibility_date = "2025-04-01" # Your compatibility date
+
+# Observability settings (optional, but good to include if desired)
+[observability]
+upload_source_maps = true # From "upload_source_maps": true in JSON
+enabled = true            # From "observability": { "enabled": true } in JSON
+
+# D1 Database Configuration
+# Each D1 database is defined as a separate table within a list using [[d1_databases]]
+[[d1_databases]]
+binding = "DB"
+database_id = "e142774c-915b-433b-94ed-e2720006201f" # Your specific database ID
+database_name = "d1-resources" # Your database name
+migrations_dir = "./migrations" # This is the crucial line for D1 Migrations
